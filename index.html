@@ -6,8 +6,13 @@
     <title>Androidの画像選択テスト</title>
 </head>
 <body>
-    <h1>Androidの画像選択テスト①</h1>
+    <h1>Androidの画像選択テスト</h1>
+    <h2>①: accept="image/*;capture=camera</h2>
     <label for="input-1">Select an image:</label>
     <input id="input-1" type="file" accept="image/*;capture=camera" title="Select an image from your device" />
+
+    <h2>②: capture="camera"</h2>
+    <label for="input-2">Select an image:</label>
+    <input id="input-2" type="file" accept="image/*" capture="camera" title="Select an image from your device" />
 </body>
 </html>
