@@ -3,10 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Androidの画像選択テスト</title>
+    <title>Android の画像選択テスト</title>
 </head>
 <body>
-    <h1>Androidの画像選択テスト</h1>
+    <h1>Android の画像選択テスト</h1>
+
+    <p>
+        Android 14から Photopicker 内でカメラの撮影を選択できないため、以前と同じ様にカメラからも画像を入力する方法がないか検証する。<a href="https://issuetracker.google.com/issues/317289301">Issue Tracker</a> には上がってる様だが、解決していない模様。
+    </p>
+
+    <h2>検証メモ</h2>
+    <ul>
+        <li>①: × Android 14 Firefox でファイルブラウザが起動してしまうのでカメラ使えず。</li>
+        <li>②: × capture="camera" があると iOS ではカメラが直で立ち上がってしまうのでダメ。Pixel では問題ないが Galaxy でもカメラが直で立ち上がるらしい。</li>
+        <li>③: ▲ Android 14 Chrome Firefox でカメラかファイルブラウザかを選択できる（Photopicker は立ち上げられない）。iOS も問題なし。微妙感あるけどこれが一番マシ・・・？</li>
+        <li>④: × ②と同様だが、Galaxy は Pixel と同じ挙動をする。</li>
+        <li>⑤: × Android 14 Chrome で直接 Photopicker が起動してしまうのでカメラ使えず。</li>
+    </ul>
+
     <h2>①: accept="image/*;capture=camera"</h2>
     <label for="input-1">Select an image:</label>
     <input id="input-1" type="file" accept="image/*;capture=camera"/>
@@ -26,5 +40,13 @@
     <h2>⑤: accept="image/*"</h2>
     <label for="input-5">Select an image:</label>
     <input id="input-5" type="file" accept="image/*">
+
+    <h3>リンク</h3>
+    <ul>
+        <li><a href="https://qiita.com/caslinden/items/dd6a920b1b9932f3fdcc">Android 14対応：画像ファイルinputからカメラアプリやメディアライブラリを開く方法 #HTML - Qiita</a></li>
+        <li><a href="https://issuetracker.google.com/issues/317289301">html `type="file"` input with `accept="image/*"` will not allow the user to upload a photo from camera [317289301] - Issue Tracker</a></li>
+        <li><a href="https://stackoverflow.com/questions/77873768/android-14-photo-picker-camera-tile-removed-from-google-chrome">Android 14 Photo Picker Camera Tile Removed From Google Chrome - Stack Overflow</a></li>
+        <li><a href="https://stackoverflow.com/questions/77886145/chrome-on-android-14-does-not-show-the-option-to-open-the-camera-when-uploading">Chrome on Android 14 does not show the option to open the camera when uploading an image - Stack Overflow</a></li>
+    </ul>
 </body>
 </html>
